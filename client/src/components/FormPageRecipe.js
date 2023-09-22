@@ -167,7 +167,6 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
                   <Form.Control.Feedback type="invalid">Method is required.</Form.Control.Feedback>
                 </FloatingLabel>
                 {/* Ingredients */}
-                <Button className='mb-3 green-button w-100' onClick={addFields}>Add ingredients</Button>
                 {inputIngredients.map((ingredientObject, index) => {
                   return (
                     <Row key={index} className='mb-3'>
@@ -189,6 +188,7 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
                     </Row>
                   )
                 })}
+                <Button className='mb-3 green-button w-100' onClick={addFields}>Add ingredients</Button>
               </Col>
             </Row>
             <Row>
