@@ -14,9 +14,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/esm/Button'
 import Form from 'react-bootstrap/Form'
-import FloatingLabel from 'react-bootstrap/esm/FloatingLabel'
-import FormRange from 'react-bootstrap/FormRange'
-import { Range } from 'react-range'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,14 +21,12 @@ import { faFire, faUtensils, faStar, faTrashCan, faPen } from '@fortawesome/free
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 
 // Utils
-import { getToken, setToken } from '../utility/auth'
-import { trusted } from 'mongoose'
+import { getToken } from '../utility/auth'
 
 export default function SingleRecipe() {
 
   const [recipe, setRecipe] = useState()
   const [formData, setFormData] = useState({ rating: 5 })
-  const [errorMessage, setErrorMessage] = useState('')
   const [validated, setValidated] = useState(false)
   const [newCommentInput, setNewCommentInput] = useState('')
   const [newRatingInput, setNewRatingInput] = useState('')
@@ -58,7 +53,6 @@ export default function SingleRecipe() {
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     setReviewSent(false)
-    setErrorMessage('')
     if (e.target.name === 'comment') {
       setNewCommentInput(e.target.value)
     } else if (e.target.name === 'rating') {
@@ -87,7 +81,6 @@ export default function SingleRecipe() {
       setFormData({ rating: 5 })
     } catch (error) {
       console.log(error)
-      setErrorMessage(error.response.data.error)
     }
   }
 
@@ -190,7 +183,7 @@ export default function SingleRecipe() {
               <h2 className='mt-4'>Ingredients</h2>
               <ul>
                 {recipe.ingredients.map((ingredient, index) => {
-                  return <li key={index}>{ingredient.amount} {ingredient.name}</li>
+                  return <li key={index}>{ingredient.name} - {ingredient.amount}</li>
                 })}
               </ul>
             </Col>
