@@ -183,7 +183,7 @@ export default function SingleRecipe() {
               <h2 className='mt-4'>Ingredients</h2>
               <ul>
                 {recipe.ingredients.map((ingredient, index) => {
-                  return <li key={index}>{ingredient.name} - {ingredient.amount}</li>
+                  return <li key={index}>{ingredient.amount} {ingredient.name}</li>
                 })}
               </ul>
             </Col>
