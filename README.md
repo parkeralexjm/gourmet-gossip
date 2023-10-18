@@ -41,7 +41,7 @@ I created the models based on the figma plan we had decided on, used chatGPT to 
 
 Created basic login and register pages, applied simple styling and added authentication routes to prevent multiple users with the same username or email address. Validate both passwords are the same and store as a hash using bcrypt.
 
-![Validation](./readme-files/models.PNG)
+![Validation](./readme-files/validation.PNG)
 
 ### Day 4
 
